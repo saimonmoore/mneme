@@ -13,6 +13,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
@@ -24,6 +25,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import {add} from '@mneme/components';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -90,6 +93,15 @@ function App(): JSX.Element {
             Read the docs to discover what to do next:
           </Section>
           <LearnMoreLinks />
+          <View>
+            <TouchableOpacity
+              accessibilityRole="button"
+              onPress={() => {
+                console.log(add(1, 2));
+              }}>
+              <Text>Run Add function</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
