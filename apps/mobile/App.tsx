@@ -26,7 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {add} from '@mneme/components';
+import {add, TestComponent} from '@mneme/components';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -102,6 +102,7 @@ function App(): JSX.Element {
               <Text>Run Add function</Text>
             </TouchableOpacity>
           </View>
+          <TestComponent />
         </View>
       </ScrollView>
     </SafeAreaView>
