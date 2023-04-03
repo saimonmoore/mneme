@@ -1,10 +1,27 @@
 {
   "name": "mneme",
-  "private": "true",
+  "private": true,
   "version": "0.0.0",
   "workspaces": [
     "packages/*",
     "apps/*"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "turbo": "turbo",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "android:metro": "yarn workspace @mneme/mobile start",
+    "android:start": "yarn workspace @mneme/mobile android",
+    "android:studio": "yarn workspace @mneme/mobile studio",
+    "ios:metro": "yarn workspace @mneme/mobile start",
+    "ios:start": "yarn workspace @mneme/mobile ios",
+    "ios:xcode": "yarn workspace @mneme/mobile xcode"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "prettier": "latest"
+  }
 }
