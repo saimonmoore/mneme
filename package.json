@@ -18,7 +18,9 @@
     "android:studio": "yarn workspace @mneme/mobile studio",
     "ios:metro": "yarn workspace @mneme/mobile start",
     "ios:start": "yarn workspace @mneme/mobile ios",
-    "ios:xcode": "yarn workspace @mneme/mobile xcode"
+    "ios:xcode": "yarn workspace @mneme/mobile xcode",
+    "postinstall": "patch-package"
+
   },
   "devDependencies": {
     "eslint-config-custom": "*",

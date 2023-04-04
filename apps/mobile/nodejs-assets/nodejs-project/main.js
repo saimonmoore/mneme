@@ -1,4 +1,5 @@
 const rn_bridge = require('rn-bridge');
+console.log('[nodejs-project] ---------------> ', rn_bridge);
 
 console.log('Node is initializing.');
 rn_bridge.channel.on('message', msg => {
