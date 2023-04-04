@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -25,6 +25,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import nodejs from 'nodejs-mobile-react-native';
 
 import {add, TestComponent} from '@mneme/components';
 
@@ -61,6 +63,17 @@ function Section({children, title}: SectionProps): JSX.Element {
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+  useEffect(() => {
+    nodejs.start('main.js');
+    nodejs.channel.addListener(
+      'message',
+      msg => {
+        console.log('From node: ' + msg);
+      },
+      this,
+    );
+  }, []);
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -93,6 +106,15 @@ function App(): JSX.Element {
             Read the docs to discover what to do next:
           </Section>
           <LearnMoreLinks />
+          <View>
+            <TouchableOpacity
+              accessibilityRole="button"
+              onPress={() => {
+                nodejs.channel.send('A message!');
+              }}>
+              <Text>Message Nodejs</Text>
+            </TouchableOpacity>
+          </View>
           <View>
             <TouchableOpacity
               accessibilityRole="button"
