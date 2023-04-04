@@ -1,8 +1,11 @@
 {
   "name": "@mneme/mobile-nodejs",
-  "version": "0.0.1",
-  "description": "node part of the project",
+  "version": "1.0.0",
+  "description": "nodejs support for backend",
   "main": "main.js",
-  "author": "janeasystems",
-  "license": ""
+  "author": "Saimon Moore",
+  "license": "MIT",
+  "dependencies": {
+    "hyperswarm": "^3.0.4"
+  }
 }
