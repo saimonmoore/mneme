@@ -1,9 +1,12 @@
 {
   "filter": [
     "rn-bridge",
-    "bl",
+    ".bin",
+    "node-gyp-build",
     "utp-native",
     "bindings-noderify-nodejs-mobile",
+    "sodium-secretstream",
+    "hmac-blake2b",
     "sodium-native-nodejs-mobile"
   ],
   "replace": {

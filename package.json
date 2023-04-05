@@ -8,8 +8,6 @@
       "apps/*"
     ],
     "nohoist": [
-      "**/react",
-      "**/react/**",
       "**/react-native",
       "**/react-native/**",
       "**/nodejs-mobile-react-native",
