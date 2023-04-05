@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "rn": "react-native",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@mneme/components": "*",

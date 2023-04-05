@@ -2,10 +2,32 @@
   "name": "mneme",
   "private": true,
   "version": "0.0.0",
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "apps/*"
+    ],
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+      "**/nodejs-mobile-react-native",
+      "**/nodejs-mobile-react-native/**",
+      "autobase/**",
+      "**/autobase/**",
+      "corestore/**",
+      "**/corestore/**",
+      "hypercore/**",
+      "**/hypercore/**",
+      "hyperswarm/**",
+      "**/hyperswarm/**",
+      "hyperbee/**",
+      "**/hyperbee/**",
+      "sodium-native/**",
+      "**/sodium-native/**",
+      "sodium-universal/**",
+      "**/sodium-universal/**"
+    ]
+  },
   "license": "MIT",
   "scripts": {
     "turbo": "turbo",
@@ -18,9 +40,7 @@
     "android:studio": "yarn workspace @mneme/mobile studio",
     "ios:metro": "yarn workspace @mneme/mobile start",
     "ios:start": "yarn workspace @mneme/mobile ios",
-    "ios:xcode": "yarn workspace @mneme/mobile xcode",
-    "postinstall": "patch-package"
-
+    "ios:xcode": "yarn workspace @mneme/mobile xcode"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
