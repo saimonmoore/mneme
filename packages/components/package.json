@@ -7,7 +7,7 @@
     "postinstall": "yarn build",
     "watch": "tsc --watch"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "18.2.0",
     "react-native": "0.71.6"
   },
