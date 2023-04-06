@@ -24,9 +24,10 @@ fi
 echo -en "Minifying with noderify..."
 cd apps/mobile/nodejs-assets/nodejs-project
 yarn install
-noderify main.js --ignoreMissing > _main.js
-rm main.js
-mv _main.js main.js
+node ./scripts/build.js
+# noderify main.js --ignoreMissing > _main.js
+# rm main.js
+# mv _main.js main.js
 
 echo
 echo -en "Remove sodium-native"
