@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "exports": "./dist/mneme.js",
+  "exports": "./dist/index.js",
   "typings": "dist/mneme.js",
   "scripts": {
     "build": "rimraf dist && tsc --build --verbose",
