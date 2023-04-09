@@ -2,7 +2,14 @@ declare module 'autobase' {
   class Autobase {
     view: any;
 
-    constructor(storage: any, options?: { key?: string, valueEncoding?: string, map?: (key: string, value: any) => any });
+    constructor(
+      storage: any,
+      options?: {
+        key?: string;
+        valueEncoding?: string;
+        map?: (key: string, value: any) => any;
+      }
+    );
 
     ready(): Promise<void>;
     start(options: any): Promise<void>;
@@ -13,7 +20,6 @@ declare module 'autobase' {
 }
 
 declare module 'corestore' {
-
   class Corestore {
     storage: any;
 
@@ -28,12 +34,12 @@ declare module 'corestore' {
 }
 
 declare module 'hyperswarm' {
-
   class Hyperswarm {
     constructor();
 
-    join(topic: Buffer): any;
+    join(topic: Buffer, { server: boolean, client: boolean }): any;
     flush(): Promise<void>;
+    flushed(): Promise<void>;
     on(event: string, callback: (socket: any, peerInfo: any) => void): void;
     destroy(): void;
   }
@@ -43,7 +49,14 @@ declare module 'hyperswarm' {
 
 declare module 'hyperbee' {
   class Hyperbee {
-    constructor(storage: any, options?: { extension: boolean, keyEncoding?: string, valueEncoding?: string });
+    constructor(
+      storage: any,
+      options?: {
+        extension: boolean;
+        keyEncoding?: string;
+        valueEncoding?: string;
+      }
+    );
     ready(): Promise<void>;
     get(key: string, options?: { update?: boolean }): Promise<any>;
     batch(options: any): any;

@@ -81,6 +81,9 @@ class Mneme {
       logger.debug('Starting to swarm...');
 
       this.swarm = new Hyperswarm();
+      this.swarm.on('update', (a, b) => {
+        logger.info('Swarm update', { a, b });
+      });
       this.swarm.on(
         'connection',
         (socket: HypercoreStream, peerInfo: PeerInfo) => {
@@ -94,14 +97,18 @@ class Mneme {
           manager.attachStream(stream);
         }
       );
-      this.swarm.join(topic);
-      logger.debug('Joining swarm topic: ' + SWARM_TOPIC);
+      const discovery = this.swarm.join(topic, { server: true, client: true });
+      // The flushed promise will resolve when the topic has been fully announced to the DHT
+      await discovery.flushed();
+      logger.debug('Server ready for topic: ' + SWARM_TOPIC);
 
       try {
         await this.swarm.flush();
       } catch (error) {
         logger.error('Swarm error', { error });
       }
+
+      logger.debug('Joining swarm topic: ' + SWARM_TOPIC);
 
       logger.debug('Swarm ready');
       // @ts-ignore
