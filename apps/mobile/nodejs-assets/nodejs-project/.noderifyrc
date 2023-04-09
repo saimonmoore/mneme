@@ -3,14 +3,9 @@
     "rn-bridge",
     ".bin",
     "node-gyp-build",
-    "utp-native",
-    "bindings-noderify-nodejs-mobile",
-    "sodium-secretstream",
-    "hmac-blake2b",
-    "sodium-native-nodejs-mobile"
+    "utp-native"
   ],
   "replace": {
-    "bindings": "bindings-noderify-nodejs-mobile",
-    "sodium-native": "sodium-native-nodejs-mobile"
+    "sodium-native": "sodium-javascript"
   }
 }

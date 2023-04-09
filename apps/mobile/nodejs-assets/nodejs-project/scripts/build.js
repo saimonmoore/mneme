@@ -12,7 +12,7 @@ function reMapSodiumNative() {
     const packageJSON = require(pathToPackageJSON);
 
     const browser = packageJSON.browser || {};
-    browser['sodium-native'] = 'sodium-native-nodejs-mobile';
+    browser['sodium-native'] = 'sodium-javascript';
 
     packageJSON.browser = browser;
 
