@@ -3,8 +3,8 @@ const fs = require('fs');
 function reMapSodiumNative() {
   const packagesToRemap = [
     'sodium-universal',
-    'sodium-secretstream',
-    'hmac-blake2b',
+    // 'sodium-secretstream',
+    // 'hmac-blake2b',
   ];
 
   packagesToRemap.forEach(packageName => {

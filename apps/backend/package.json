@@ -12,7 +12,7 @@
     "check:types": "tsc --noEmit"
   },
   "dependencies": {
-    "@lejeunerenard/autobase-manager": "../../p2p/autobase-manager",
+    "@lejeunerenard/autobase-manager": "/Users/saimon.moore/Development/Personal/experiments/mneme/packages/autobase-manager",
     "@microlink/mql": "^0.10.32",
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.15.11",

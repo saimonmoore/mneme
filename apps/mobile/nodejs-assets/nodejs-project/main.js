@@ -1,11 +1,29 @@
-const rn_bridge = require('rn-bridge');
-const Hyperswarm = require('hyperswarm');
-console.log('[nodejs-project] ---------------> ', rn_bridge);
+const bridge = require('bridge');
+const {Client} = require('@mneme/backend');
+
+const userDataPath = bridge.app.datadir();
+// const env = 'development';
+
+console.log('userDataPath', userDataPath);
+console.log('[nodejs-project] ---------------> ', {Client});
+console.log('[nodejs-project] ---------------> ', {bridge});
 
 console.log('Node is initializing.');
-rn_bridge.channel.on('message', msg => {
+// Instantiate backend
+await Client(bridge.channel, userDataPath);
+
+bridge.channel.on('message', msg => {
   console.log('got message from react-native: ', msg);
-  rn_bridge.channel.send(msg);
+
+  if (typeof msg === 'object') {
+    console.log('[nodejs-project] Message is not an object');
+    return;
+  }
+
+  if (typeof msg === 'string') {
+    console.log('[nodejs-project] Message is a string! Echoing!');
+    bridge.channel.send(msg);
+  }
 });
 
-rn_bridge.channel.send('Node was initialized.');
+bridge.channel.send('Node was initialized.');

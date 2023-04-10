@@ -1,4 +1,5 @@
 import { Mneme } from './mneme.js';
+import { logger } from '#infrastructure/logging/index.js';
 
 type RNMessage = {
   event: string;
@@ -25,6 +26,21 @@ export enum SessionResultEvents {
 
 function Session(props: ClientProps) {
   const { channel, msg, backend } = props;
+  if (!msg) {
+    logger.error('No message received');
+    return;
+  }
+
+  if (typeof msg !== 'object') {
+    logger.error('Message is not an object');
+    return;
+  }
+
+  if (!msg.event) {
+    logger.error('No event received');
+    return;
+  }
+
   const { event, payload } = msg;
 
   if (event === SessionCommandEvents.isLoggedIn) {
@@ -44,9 +60,10 @@ function Session(props: ClientProps) {
   }
 }
 
-export function RNClient(props: { channel: any; userDataPath: string }) {
+export async function RNClient(props: { channel: any; userDataPath: string }) {
   const { channel, userDataPath } = props;
   const backend = new Mneme(false, userDataPath, true);
+  await backend.start();
 
   channel.on('message', async (msg: any) => {
     Session({ channel, msg, backend });

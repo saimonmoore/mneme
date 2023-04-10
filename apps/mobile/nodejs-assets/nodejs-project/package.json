@@ -6,6 +6,6 @@
   "author": "Saimon Moore",
   "license": "MIT",
   "dependencies": {
-    "hyperswarm": "^3.0.4"
+    "@mneme/backend": "../../../backend"
   }
 }

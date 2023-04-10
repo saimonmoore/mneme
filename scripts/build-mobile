@@ -24,7 +24,7 @@ fi
 echo -en "Minifying with noderify..."
 cd apps/mobile/nodejs-assets/nodejs-project
 yarn install
-node ./scripts/build.js
+# node ./scripts/build.js
 noderify main.js --ignoreMissing > _main.js
 rm main.js
 mv _main.js main.js

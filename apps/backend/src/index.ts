@@ -1,6 +1,10 @@
 import minimist from 'minimist';
 import { Mneme } from './mneme.js';
-import { RNClient } from './RNClient.js';
+import {
+  RNClient,
+  SessionCommandEvents,
+  SessionResultEvents,
+} from './RNClient.js';
 import { logger } from '#infrastructure/logging/index.js';
 
 const args = minimist(process.argv, {
@@ -15,7 +19,7 @@ const args = minimist(process.argv, {
 
 export const mneme = new Mneme(args.ram, args.storage, args.swarm);
 
-export { RNClient as Client };
+export { RNClient as Client, SessionCommandEvents, SessionResultEvents };
 
 if (args.storage) {
   logger.info(`Starting Mneme with storage: ${args.storage}`);
